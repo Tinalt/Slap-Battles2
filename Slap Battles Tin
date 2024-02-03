@@ -479,7 +479,7 @@ local Tab15 = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddLabel("Owner Credits Script By Giang And Tấn Lộc And DonjoSx")
+Tab:AddLabel("Owner Credits Script By Giang And Tin And DonjoSx")
 local InfoServer = Tab:AddSection({Name = "Info"})
 CanYouFps = Tab:AddLabel("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
 CanYouPing = Tab:AddLabel("Can You Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
