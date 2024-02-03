@@ -7,7 +7,7 @@ game:GetService("GuiService"):ClearError()
 local OrionLib = loadstring(game:HttpGet(("https://raw.githubusercontent.com/Giangplay/Script/main/Orion_Library_PE_V2.lua")))()
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 if game.PlaceId == 6403373529 or game.PlaceId == 9015014224 or game.PlaceId == 11520107397 then
-local Window = OrionLib:MakeWindow({IntroText = "Slap Battles 👏", IntroIcon = "rbxassetid://7733955740",Name = ("Slap Battles 👏".." | ".. identifyexecutor()), HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"})
+local Window = OrionLib:MakeWindow({IntroText = "Slap Battles 👏", IntroIcon = "rbxassetid://7733955740",Name = ("Slap Battles 👏"), HidePremium = false, SaveConfig = false, IntroEnabled = false, ConfigFolder = "slap battles"})
 
 ---Bypass---
 
@@ -426,7 +426,7 @@ local Tab = Window:MakeTab({
 })
 
 local Tab1 = Window:MakeTab({
-	Name = "Script",
+	Name = "Scripts",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -450,7 +450,7 @@ local Tab3 = Window:MakeTab({
 })
 
 local Tab5 = Window:MakeTab({
-	Name = "Local",
+	Name = "Local Player",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -474,7 +474,7 @@ local Tab11 = Window:MakeTab({
 })
 
 local Tab15 = Window:MakeTab({
-	Name = "Cradit",
+	Name = "Credits",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
