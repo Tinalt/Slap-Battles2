@@ -48,7 +48,173 @@ _G.GetPotion = {
 
 ---GetThe---
 
-local Gloves = loadstring(game:HttpGet("https://raw.githubusercontent.com/Giangplay/slap-battles/main/File/Gloves.lua"))()
+local gloveHits = {
+    ["Default"] = game.ReplicatedStorage.b,
+    ["Extended"] = game.ReplicatedStorage.b,
+    -----------// Glove Hit General \\-----------
+    ["T H I C K"] = game.ReplicatedStorage.GeneralHit,
+    ["Squid"] = game.ReplicatedStorage.GeneralHit,
+    ["Gummy"] = game.ReplicatedStorage.GeneralHit,
+    ["RNG"] = game.ReplicatedStorage.GeneralHit,
+    ["Tycoon"] = game.ReplicatedStorage.GeneralHit,
+    ["Charge"] = game.ReplicatedStorage.GeneralHit,
+    ["Baller"] = game.ReplicatedStorage.GeneralHit,
+    ["Tableflip"] = game.ReplicatedStorage.GeneralHit,
+    ["Booster"] = game.ReplicatedStorage.GeneralHit,
+    ["Shield"] = game.ReplicatedStorage.GeneralHit,
+    ["Track"] = game.ReplicatedStorage.GeneralHit,
+    ["Goofy"] = game.ReplicatedStorage.GeneralHit,
+    ["Confusion"] = game.ReplicatedStorage.GeneralHit,
+    ["Elude"] = game.ReplicatedStorage.GeneralHit,
+    ["Glitch"] = game.ReplicatedStorage.GeneralHit,
+    ["Snowball"] = game.ReplicatedStorage.GeneralHit,
+    ["fish"] = game.ReplicatedStorage.GeneralHit,
+    ["Killerfish"] = game.ReplicatedStorage.GeneralHit,
+    ["ðŸ—¿"] = game.ReplicatedStorage.GeneralHit,
+    ["Obby"] = game.ReplicatedStorage.GeneralHit,
+    ["Voodoo"] = game.ReplicatedStorage.GeneralHit,
+    ["Leash"] = game.ReplicatedStorage.GeneralHit,
+    ["Flamarang"] = game.ReplicatedStorage.GeneralHit,
+    ["Berserk"] = game.ReplicatedStorage.GeneralHit,
+    ["Quake"] = game.ReplicatedStorage.GeneralHit,
+    ["Rattlebones"] = game.ReplicatedStorage.GeneralHit,
+    ["Chain"] = game.ReplicatedStorage.GeneralHit,
+    ["Ping Pong"] = game.ReplicatedStorage.GeneralHit,
+    ["Whirlwind"] = game.ReplicatedStorage.GeneralHit,
+    ["Slicer"] = game.ReplicatedStorage.GeneralHit,
+    ["Counter"] = game.ReplicatedStorage.GeneralHit,
+    ["Hammer"] = game.ReplicatedStorage.GeneralHit,
+    ["Excavator"] = game.ReplicatedStorage.GeneralHit,
+    ["Home Run"] = game.ReplicatedStorage.GeneralHit,
+    ["Psycho"] = game.ReplicatedStorage.GeneralHit,
+    ["Kraken"] = game.ReplicatedStorage.GeneralHit,
+    ["Gravity"] = game.ReplicatedStorage.GeneralHit,
+    ["Lure"] = game.ReplicatedStorage.GeneralHit,
+    ["Jebaited"] = game.ReplicatedStorage.GeneralHit,
+    ["Meteor"] = game.ReplicatedStorage.GeneralHit,
+    ["Tinkerer"] = game.ReplicatedStorage.GeneralHit,    
+    ["Guardian Angel"] = game.ReplicatedStorage.GeneralHit,
+    ["Sun"] = game.ReplicatedStorage.GeneralHit,
+    ["Necromancer"] = game.ReplicatedStorage.GeneralHit,
+    ["Zombie"] = game.ReplicatedStorage.GeneralHit,
+    ["Dual"] = game.ReplicatedStorage.GeneralHit,
+    ["Alchemist"] = game.ReplicatedStorage.GeneralHit,
+    ["Parry"] = game.ReplicatedStorage.GeneralHit,
+    ["Druid"] = game.ReplicatedStorage.GeneralHit,
+    ["Oven"] = game.ReplicatedStorage.GeneralHit,
+    ["Jester"] = game.ReplicatedStorage.GeneralHit,
+    ["Ferryman"] = game.ReplicatedStorage.GeneralHit,
+    ["Scythe"] = game.ReplicatedStorage.GeneralHit,
+    ["Blackhole"] = game.ReplicatedStorage.GeneralHit,
+    ["Santa"] = game.ReplicatedStorage.GeneralHit,
+    ["Grapple"] = game.ReplicatedStorage.GeneralHit,
+    ["Iceskate"] = game.ReplicatedStorage.GeneralHit,
+    ["Pan"] = game.ReplicatedStorage.GeneralHit,
+    ["Blasphemy"] = game.ReplicatedStorage.GeneralHit,
+    ["Blink"] = game.ReplicatedStorage.GeneralHit,
+    ["Ultra Instinct"] = game.ReplicatedStorage.GeneralHit,
+    ["Admin"] = game.ReplicatedStorage.GeneralHit,
+    ["Prop"] = game.ReplicatedStorage.GeneralHit,
+    ["Joust"] = game.ReplicatedStorage.GeneralHit,
+    -----------// Glove Hit Normal And New \\-----------
+    ["ZZZZZZZ"] = game.ReplicatedStorage.ZZZZZZZHit,
+    ["Brick"] = game.ReplicatedStorage.BrickHit,
+    ["Snow"] = game.ReplicatedStorage.SnowHit,
+    ["Pull"] = game.ReplicatedStorage.PullHit,
+    ["Flash"] = game.ReplicatedStorage.FlashHit,
+    ["Spring"] = game.ReplicatedStorage.springhit,
+    ["Swapper"] = game.ReplicatedStorage.HitSwapper,
+    ["Bull"] = game.ReplicatedStorage.BullHit,
+    ["Dice"] = game.ReplicatedStorage.DiceHit,
+    ["Ghost"] = game.ReplicatedStorage.GhostHit,
+    ["Thanos"] = game.ReplicatedStorage.ThanosHit,
+    ["Stun"] = game.ReplicatedStorage.HtStun,
+    ["Za Hando"] = game.ReplicatedStorage.zhramt,
+    ["Fort"] = game.ReplicatedStorage.Fort,
+    ["Magnet"] = game.ReplicatedStorage.MagnetHIT,
+    ["Pusher"] = game.ReplicatedStorage.PusherHit,
+    ["Anchor"] = game.ReplicatedStorage.hitAnchor,
+    ["Space"] = game.ReplicatedStorage.HtSpace,
+    ["Boomerang"] = game.ReplicatedStorage.BoomerangH,
+    ["Speedrun"] = game.ReplicatedStorage.Speedrunhit,
+    ["Mail"] = game.ReplicatedStorage.MailHit,
+    ["Golden"] = game.ReplicatedStorage.GoldenHit,
+    ["Cheeky"] = game.ReplicatedStorage.CheekyHit,
+    ["Reaper"] = game.ReplicatedStorage.ReaperHit,
+    ["Replica"] = game.ReplicatedStorage.ReplicaHit,
+    ["Defense"] = game.ReplicatedStorage.DefenseHit,
+    ["Killstreak"] = game.ReplicatedStorage.KSHit,
+    ["Reverse"] = game.ReplicatedStorage.ReverseHit,
+    ["Shukuchi"] = game.ReplicatedStorage.ShukuchiHit,
+    ["Duelist"] = game.ReplicatedStorage.DuelistHit,
+    ["woah"] = game.ReplicatedStorage.woahHit,
+    ["Ice"] = game.ReplicatedStorage.IceHit,
+    ["Adios"] = game.ReplicatedStorage.hitAdios,
+    ["Blocked"] = game.ReplicatedStorage.BlockedHit,
+    ["Engineer"] = game.ReplicatedStorage.engiehit,
+    ["Rocky"] = game.ReplicatedStorage.RockyHit,
+    ["Conveyor"] = game.ReplicatedStorage.ConvHit,
+    ["STOP"] = game.ReplicatedStorage.STOP,
+    ["Phantom"] = game.ReplicatedStorage.PhantomHit,
+    ["Wormhole"] = game.ReplicatedStorage.WormHit,
+    ["Acrobat"] = game.ReplicatedStorage.AcHit,
+    ["Plague"] = game.ReplicatedStorage.PlagueHit,
+    ["[REDACTED]"] = game.ReplicatedStorage.ReHit,
+    ["bus"] = game.ReplicatedStorage.hitbus,
+    ["Phase"] = game.ReplicatedStorage.PhaseH,
+    ["Warp"] = game.ReplicatedStorage.WarpHt,
+    ["Bomb"] = game.ReplicatedStorage.BombHit,
+    ["Bubble"] = game.ReplicatedStorage.BubbleHit,
+    ["Jet"] = game.ReplicatedStorage.JetHit,
+    ["Shard"] = game.ReplicatedStorage.ShardHIT,
+    ["potato"] = game.ReplicatedStorage.potatohit,
+    ["CULT"] = game.ReplicatedStorage.CULTHit,
+    ["bob"] = game.ReplicatedStorage.bobhit,
+    ["Buddies"] = game.ReplicatedStorage.buddiesHIT,
+    ["Spy"] = game.ReplicatedStorage.SpyHit,
+    ["Detonator"] = game.ReplicatedStorage.DetonatorHit,
+    ["Rage"] = game.ReplicatedStorage.GRRRR,
+    ["Trap"] = game.ReplicatedStorage.traphi,
+    ["Orbit"] = game.ReplicatedStorage.Orbihit,
+    ["Hybrid"] = game.ReplicatedStorage.HybridCLAP,
+    ["Slapple"] = game.ReplicatedStorage.SlappleHit,
+    ["Disarm"] = game.ReplicatedStorage.DisarmH,
+    ["Dominance"] = game.ReplicatedStorage.DominanceHit,
+    ["Link"] = game.ReplicatedStorage.LinkHit,
+    ["Rojo"] = game.ReplicatedStorage.RojoHit,
+    ["rob"] = game.ReplicatedStorage.robhit,
+    ["Rhythm"] = game.ReplicatedStorage.rhythmhit,
+    ["Nightmare"] = game.ReplicatedStorage.nightmarehit,
+    ["Hitman"] = game.ReplicatedStorage.HitmanHit,
+    ["Thor"] = game.ReplicatedStorage.ThorHit,
+    ["Retro"] = game.ReplicatedStorage.RetroHit,
+    ["Cloud"] = game.ReplicatedStorage.CloudHit,
+    ["Null"] = game.ReplicatedStorage.NullHit,
+    ["spin"] = game.ReplicatedStorage.spinhit,
+    -----------// Glove Hit Stun \\-----------
+    ["Kinetic"] = game.ReplicatedStorage.HtStun,
+    ["Recall"] = game.ReplicatedStorage.HtStun,
+    ["Balloony"] = game.ReplicatedStorage.HtStun,
+    ["Sparky"] = game.ReplicatedStorage.HtStun,
+    ["Boogie"] = game.ReplicatedStorage.HtStun,
+    ["Stun"] = game.ReplicatedStorage.HtStun,
+    ["Coil"] = game.ReplicatedStorage.HtStun,
+    -----------// Glove Hit Diamond \\-----------
+    ["Diamond"] = game.ReplicatedStorage.DiamondHit,
+    ["Megarock"] = game.ReplicatedStorage.DiamondHit,
+    -----------// Glove Hit Celestial \\-----------
+    ["Moon"] = game.ReplicatedStorage.CelestialHit,
+    ["Jupiter"] = game.ReplicatedStorage.CelestialHit,
+    -----------// Glove Hard \\-----------
+    ["Mitten"] = game.ReplicatedStorage.MittenHit,
+    ["Hallow Jack"] = game.ReplicatedStorage.HallowHIT,
+    -----------// Glove Hit Power \\-----------
+    ["OVERKILL"] = game.ReplicatedStorage.Overkillhit,
+    ["The Flex"] = game.ReplicatedStorage.FlexHit,
+    ["Custom"] = game.ReplicatedStorage.CustomHit,
+    ["God's Hand"] = game.ReplicatedStorage.Godshand,
+    ["Error"] = game.ReplicatedStorage.Errorhit
+}
 
 if not game.ReplicatedStorage:FindFirstChild("robAnimation") then
 local robAnim = Instance.new("Animation")
@@ -426,7 +592,7 @@ local Tab = Window:MakeTab({
 })
 
 local Tab1 = Window:MakeTab({
-	Name = "Scripts",
+	Name = "Script",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -450,7 +616,7 @@ local Tab3 = Window:MakeTab({
 })
 
 local Tab5 = Window:MakeTab({
-	Name = "Local Player",
+	Name = "Local",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -479,14 +645,13 @@ local Tab15 = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Tab:AddLabel("Owner Credits Script By Giang And Tin And DonjoSx")
 local InfoServer = Tab:AddSection({Name = "Info"})
-CanYouFps = Tab:AddLabel("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
-CanYouPing = Tab:AddLabel("Can You Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
-ServerPlayer = Tab:AddLabel("Player Server [ "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers.." ]")
-TimeServer = Tab:AddLabel("Time Server [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minute | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
-AgeAccYou = Tab:AddLabel("Age You [ "..game.Players.LocalPlayer.AccountAge.." ]")
-ViewAgeServer = Tab:AddLabel("View Server Age [ "..game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text.." ]")
+CanYouFps = Tab:AddLabel("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+CanYouPing = Tab:AddLabel("Your Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
+ServerPlayer = Tab:AddLabel("Player In Server [ "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers.." ]")
+TimeServer = Tab:AddLabel("Server Time [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minute | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
+AgeAccYou = Tab:AddLabel("You Account Age[ "..game.Players.LocalPlayer.AccountAge.." ]")
+ViewAgeServer = Tab:AddLabel("Server's Age [ "..game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text.." ]")
 CodeKeypad = Tab:AddLabel("Code Keypad [ "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7).." ]")
 if not game.Workspace:FindFirstChild("Keypad") then
 KeypadSpawn = Tab:AddLabel("Keypad Spawn [ No ]")
@@ -496,7 +661,7 @@ end
 CheckSlap = Tab:AddLabel("Check Slap [ "..game.Players.LocalPlayer.leaderstats.Slaps.Value.." ]")
 Glove = Tab:AddLabel("You're Using Glove [ "..game.Players.LocalPlayer.leaderstats.Glove.Value.." ]")
 PlateTime = Tab:AddLabel("Plate Time [ "..game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text.." ]")
-Tab:AddLabel("ID Game Play [ "..game.PlaceId.." ]")
+Tab:AddLabel("Game's ID [ "..game.PlaceId.." ]")
 local InfoServer = Tab:AddSection({Name = "Local Player"})
 if game.Players.LocalPlayer.Character:FindFirstChild("rock") then
 WalkspeedYou = Tab:AddLabel("Walk Speed [ Not Walk then rock ]")
@@ -510,7 +675,7 @@ HealthYou = Tab:AddLabel("Health You [ "..game.Players.LocalPlayer.Character.Hum
 HipHeightYou = Tab:AddLabel("Hip Height [ "..game.Players.LocalPlayer.Character.Humanoid.HipHeight.." ]")
 end
 GravityYou = Tab:AddLabel("Gravity [ "..game.Workspace.Gravity.." ]")
-PositionYou = Tab:AddLabel("Position You [ "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)).." ]")
+PositionYou = Tab:AddLabel("Position In Your [ "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)).." ]")
 
 Tab:AddToggle({
 	Name = "Auto Set Info",
@@ -519,14 +684,14 @@ Tab:AddToggle({
 _G.AutoSetInfo = Value
 game:GetService("RunService").RenderStepped:Connect(function()
 if _G.AutoSetInfo then
-CanYouFps:Set("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
-ServerPlayer:Set("Player Server [ "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers.." ]")
-TimeServer:Set("Time Server [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minutes | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
-CanYouPing:Set("Can You Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
-AgeAccYou:Set("Age You [ "..game.Players.LocalPlayer.AccountAge.." ]")
-ViewAgeServer:Set("View Server Age [ "..game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text.." ]")
+CanYouFps:Set("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+ServerPlayer:Set("Player In Server [ "..#game.Players:GetPlayers().." / "..game.Players.MaxPlayers.." ]")
+TimeServer:Set("Server Time [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minutes | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
+CanYouPing:Set("Your Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
+AgeAccYou:Set("Your Account Age [ "..game.Players.LocalPlayer.AccountAge.." ]")
+ViewAgeServer:Set("Server's Age [ "..game.Workspace.Lobby.ServerAge.Text.SurfaceGui.TextLabel.Text.." ]")
 PlateTime:Set("Plate Time [ "..game.Players.LocalPlayer.PlayerGui.PlateIndicator.TextLabel.Text.." ]")
-PositionYou:Set("Position You [ "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)).." ]")
+PositionYou:Set("Position In You [ "..tostring(math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.X)..", ".. math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Y)..", "..math.round(game.Players.LocalPlayer.Character.HumanoidRootPart.Position.Z)).." ]")
 CodeKeypad:Set("Code Keypad [ "..tostring((#game.Players:GetPlayers()) * 25 + 1100 - 7).." ]")
 CheckSlap:Set("Check Slap [ "..game.Players.LocalPlayer.leaderstats.Slaps.Value.." ]")
 Glove:Set("You're Using Glove [ "..game.Players.LocalPlayer.leaderstats.Glove.Value.." ]")
@@ -777,7 +942,7 @@ end
 Tab3:AddDropdown({
 	Name = "Repressed Memory",
 	Default = "",
-	Options = {"Show All","Off Show All","Teleport Enter"},
+	Options = {"Show All","Off Show All","Teleport Enter","Teleport Bob Plushie","Click Bob Plushie","Teleport Portal"},
 	Callback = function(Value)
 if Value == "Show All" then
 game.ReplicatedStorage.RepressedMemoriesMap.Parent = game.Workspace
@@ -785,6 +950,12 @@ elseif Value == "Off Show All" then
 game.Workspace.RepressedMemoriesMap.Parent = game.ReplicatedStorage
 elseif Value == "Teleport Enter" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18625, 2971, -230)
+elseif Value == "Teleport Bob Plushie" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18472.6094, 3063.44214, -402.015442, -0.835954249, 0, -0.548799276, 0, 1.00000012, 0, 0.548799336, 0, -0.83595413)
+elseif Value == "Click Bob Plushie" then
+fireclickdetector(game.Workspace:FindFirstChild("_ugcQuestObjectBobPlushie").ClickDetector)
+elseif Value == "Teleport Portal" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(18661.6172, 3002.72485, -298.155304, 0.999925911, -0, -0.0121711809, 0, 1, -0, 0.0121711809, 0, 0.999925911)
 end
 	end    
 })
@@ -807,14 +978,11 @@ end
 Tab3:AddButton({
 	Name = "Reset Player",
 	Callback = function()
+if game.Players.LocalPlayer.Character.Humanoid.Health ~= 0 then
 game:GetService("ReplicatedStorage"):WaitForChild("HumanoidDied"):FireServer(game.Players.LocalPlayer.Character,false)
-  	end    
-})
-
-Tab3:AddButton({
-	Name = "Click Bob Plushie",
-	Callback = function()
-         fireclickdetector(game.Workspace.RepressedMemories._ugcQuestObjectBobPlushie.ClickDetector)
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You have dead",Image = "rbxassetid://7733658504",Time = 5})
+end
   	end    
 })
 
@@ -888,7 +1056,7 @@ game:GetService("ReplicatedStorage").busmoment:FireServer()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
 wait(1.5)
 game.ReplicatedStorage.SelfKnockback:FireServer({["Force"] = 0,["Direction"] = Vector3.new(0,0.01,0)})
-task.wait(0.7)
+wait(0.8)
 for i,v in pairs(game.Workspace:GetChildren()) do
 if v.Name == "BusModel" then
 v.CFrame = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -1653,7 +1821,9 @@ Prop = Tab14:AddToggle({
 PropSpam = Value
 if game.Players.LocalPlayer.leaderstats.Glove.Value == "Prop" then
 while PropSpam and game.Players.LocalPlayer.leaderstats.Glove.Value == "Prop" do
+if game.Workspace:FindFirstChild("PropModel_"..game.Players.LocalPlayer.Name) == nil then
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer(PropAbility)
+end
 task.wait()
 end
 elseif PropSpam == true then
@@ -1824,31 +1994,7 @@ PlayerKick = Value
 })
 
 Tab14:AddButton({
-	Name = "Start Kick Player Recall",
-	Callback = function()
-if game.Players.LocalPlayer.leaderstats.Glove.Value == "Recall" and game.Players.LocalPlayer.Character:FindFirstChild("Recall") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players[PlayerKick].Character:FindFirstChild("entered") and game.Players[PlayerKick].Character:FindFirstChild("HumanoidRootPart") then
-OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-v.CanTouch = false
-end
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-725,310,-2)
-task.wait(0.5)
-game:GetService("ReplicatedStorage").Recall:InvokeServer(game:GetService("Players").LocalPlayer.Character.Recall)
-task.wait(2.4)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[PlayerKick].Character.HumanoidRootPart.CFrame
-task.wait(1.54)
-game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = OGL
-for i,v in pairs(game.Workspace.Lobby.brazil:GetChildren()) do
-v.CanTouch = true
-end
-else
-OrionLib:MakeNotification({Name = "Error",Content = "You don't have Recall equipped, or you not equipped, or player not enter arena",Image = "rbxassetid://7733658504",Time = 5})
-end
-  	end    
-})
-
-Tab14:AddButton({
-	Name = "Start Kick Player Recall (Turn On Anti Portal First)",
+	Name = "Start Kick Player Recall (Turn On Anti Portal)",
 	Callback = function()
 if game.Players.LocalPlayer.leaderstats.Glove.Value == "Recall" and game.Players.LocalPlayer.Character:FindFirstChild("Recall") and game.Players.LocalPlayer.Character:FindFirstChild("entered") and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players[PlayerKick].Character:FindFirstChild("entered") and game.Players[PlayerKick].Character:FindFirstChild("HumanoidRootPart") then
 OGL = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
@@ -2083,7 +2229,7 @@ end
 while ReplicaBallerFarm do 
 for i, v in pairs(workspace:GetChildren()) do 
                  if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then 
-game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
+game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"),true)
                  end
 end
 task.wait()
@@ -2108,7 +2254,7 @@ end
 while ReplicaBallerBlinkFarm do 
 for i, v in pairs(workspace:GetChildren()) do 
                  if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then 
-game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
+game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"),true)
                  end
 end
 task.wait()
@@ -2133,7 +2279,7 @@ end
 while _G.BallerFarm and game.Players.LocalPlayer.leaderstats.Glove.Value == "Baller" do
 for _, v in pairs(workspace:GetChildren()) do
                  if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
-game.ReplicatedStorage.GeneralHit:FireServer(v:WaitForChild("HumanoidRootPart"))
+game.ReplicatedStorage.GeneralHit:FireServer(v:WaitForChild("HumanoidRootPart"),true)
                 end
             end
 task.wait()
@@ -2158,7 +2304,7 @@ end
 while ReplicaFarm and game.Players.LocalPlayer.leaderstats.Glove.Value == "Replica" and game.Players.LocalPlayer.Character.IsInDefaultArena.Value == true do
 for i, v in pairs(workspace:GetChildren()) do
                 if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
-game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"))
+game.ReplicatedStorage.b:FireServer(v:WaitForChild("HumanoidRootPart"),true)
                 end
             end
 task.wait()
@@ -2182,8 +2328,8 @@ coroutine.wrap(SpamBlink)()
 end
 while BlinkFarm and game.Players.LocalPlayer.leaderstats.Glove.Value == "Blink" and game.Players.LocalPlayer.Character:FindFirstChild("entered") do
 for i, v in pairs(workspace:GetChildren()) do
-                if v ~= game.Players.LocalPlayer.Name and v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
-game.ReplicatedStorage.GeneralHit:FireServer(v:WaitForChild("HumanoidRootPart"))
+                if v.Name:match(game.Players.LocalPlayer.Name) and v:FindFirstChild("HumanoidRootPart") then
+game.ReplicatedStorage.GeneralHit:FireServer(v:WaitForChild("HumanoidRootPart"),true)
                 end
             end
 task.wait()
@@ -2685,12 +2831,9 @@ end
 	end    
 })
 
-local Bindable = Instance.new("BindableFunction")
 Tab7:AddButton({
-	Name = "View Testing Server",
+	Name = "View Slap Battles Testing Server",
 	Callback = function()
-function Callback(answer)
-if answer == "Server Slap Battles" then
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
     teleportFunc([[
@@ -2699,31 +2842,14 @@ if teleportFunc then
         end
         repeat wait() until game.Players.LocalPlayer
         game:GetService("RunService").RenderStepped:Connect(function()
+if game.CoreGui.RobloxLoadingGUI then
             game:GetService("GuiService"):ClearError()
             game.CoreGui.RobloxLoadingGUI:Destroy()
+end
         end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
-elseif answer == "Server Slap Royale" then
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
-if teleportFunc then
-    teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        repeat wait() until game.Players.LocalPlayer
-        game:GetService("RunService").RenderStepped:Connect(function()
-            game:GetService("GuiService"):ClearError()
-            game.CoreGui.RobloxLoadingGUI:Destroy()
-        end)
-    ]])
-end
-game:GetService("TeleportService"):Teleport(9412268818)
-end
-end
-Bindable.OnInvoke = Callback
-game.StarterGui:SetCore("SendNotification", {Title = "Error",Text = "Server Leaking Glove",Duration = 5,Button1 = "Server Slap Battles",Button2 = "Server Slap Royale",Icon = "rbxassetid://7733658504",Callback = Bindable})
   	end    
 })
 
@@ -2996,7 +3122,7 @@ game.Workspace.CurrentCamera.CameraSubject = game:GetService("Players").LocalPla
 end
 end
 while _G.PlayerView do
-if game.Workspace.CurrentCamera and game.Players[_G.ViewPlayer].Character and game.Players[_G.ViewPlayer].Character:FindFirstChildOfClass("Humanoid") and game.Players[_G.ViewPlayer].Character then
+if game.Workspace.CurrentCamera and game.Players[_G.ViewPlayer].Character and game.Players[_G.ViewPlayer].Character:FindFirstChildOfClass("Humanoid") then
 game.Workspace.CurrentCamera.CameraSubject = game.Players[_G.ViewPlayer].Character:FindFirstChildOfClass("Humanoid")
 end
 task.wait()
@@ -3081,7 +3207,7 @@ OrionLib:MakeNotification({Name = "Error",Content = "Server in have keypad.",Ima
 wait(0.05)
 Notifykeypad:Set(false)
 end
-task.wait()
+task.wait(0.05)
 end
 	end    
 })
@@ -3247,6 +3373,83 @@ end
   	end    
 })
 
+Tab7:AddTextbox({
+	Name = "Help Player Teleport Button",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+_G.HelpPlayerGetButton = Value
+	end	  
+})
+
+Tab7:AddButton({
+	Name = "Start Help Player",
+	Callback = function()
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Recall" then
+function GetPlayer(String)
+local Found = {}
+local strl = String:lower()
+if strl == "Random" then
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if v.Name ~= game.Players.LocalPlayer.Name then
+table.insert(Found,v)
+end
+end
+else
+for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+if v.Name:lower():sub(1, #String) == String:lower() then
+table.insert(Found,v)
+end
+end 
+end
+return Found
+end
+local Help = unpack(GetPlayer(_G.HelpPlayerGetButton))
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16976, 801, 4907)
+wait(1)
+game:GetService("ReplicatedStorage").Recall:InvokeServer(game:GetService("Players").LocalPlayer.Character.Recall)
+task.wait(2.4)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Help.Character.HumanoidRootPart.CFrame
+wait(1)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16976, 801, 4907)
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Recall equipped",Image = "rbxassetid://7733658504",Time = 5})
+end
+  	end 
+})
+
+Tab7:AddTextbox({
+	Name = "Help Player Get Quake",
+	Default = "Username",
+	TextDisappear = false,
+	Callback = function(Value)
+_G.HelpPlayerGetQuake = Value
+	end	  
+})
+
+Tab7:AddButton({
+	Name = "Start Help Player",
+	Callback = function()
+if game.Players.LocalPlayer.leaderstats.Glove.Value == "Home Run" and game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil and game.Players[_G.HelpPlayerGetQuake].leaderstats.Glove.Value == "Berserk" then
+game:GetService("ReplicatedStorage").HomeRun:FireServer({["start"] = true})
+if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
+fireclickdetector(game.Workspace.Lobby.woah.ClickDetector)
+end
+wait(4.2)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[_G.HelpPlayerGetQuake].Character.HumanoidRootPart.CFrame
+wait(0.5)
+game:GetService("ReplicatedStorage").VineThud:FireServer()
+task.wait(1.5)
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = game.Players[_G.HelpPlayerGetQuake].Character.HumanoidRootPart.CFrame
+fireclickdetector(game.Workspace.Lobby["Home Run"].ClickDetector)
+wait(0.5)
+game:GetService("ReplicatedStorage").HomeRun:FireServer({["finished"] = true})
+else
+OrionLib:MakeNotification({Name = "Error",Content = "You don't have Home Run equipped, or you have to go lobby, or player don't have Berserk equipped.",Image = "rbxassetid://7733658504",Time = 5})
+end
+  	end 
+})
+
 Tab7:AddSlider({
 	Name = "HipHeight AutoFarm Slap",
 	Min = 0,
@@ -3273,7 +3476,7 @@ if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("Humanoi
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove.Value == "Error" then
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Character:FindFirstChild("HumanoidRootPart").CFrame * CFrame.new(0,_G.HipAutoFarmSlap,0)
 task.wait(0.5)
-shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild("HumanoidRootPart"),true)
+gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild("HumanoidRootPart"),true)
 task.wait(0.25)
 end
 end
@@ -3648,6 +3851,7 @@ task.wait()
 end
 while On and game.Players.LocalPlayer.leaderstats.Glove.Value == "Joust" do
 game:GetService("ReplicatedStorage").GeneralAbility:FireServer("Start")
+game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 40
 task.wait()
 end
 	end    
@@ -3861,15 +4065,15 @@ Tab7:AddTextbox({
 	Default = "Glove Name",
 	TextDisappear = false,
 	Callback = function(Value)
-		EpinGlove = Value
+		_G.EquipGlove = Value
 	end	  
 })
 
 Tab7:AddButton({
-	Name = "Epin Glove",
+	Name = "Equip Glove",
 	Callback = function()
 if game.Players.LocalPlayer.Character:FindFirstChild("entered") == nil then
-fireclickdetector(game.Workspace.Lobby[EpinGlove].ClickDetector)
+fireclickdetector(game.Workspace.Lobby[_G.EquipGlove].ClickDetector)
 else
 OrionLib:MakeNotification({Name = "Error",Content = "You aren't in the lobby.",Image = "rbxassetid://7733658504",Time = 5})
 end
@@ -3877,7 +4081,7 @@ end
 })
 
 Tab7:AddTextbox({
-	Name = "Id game",
+	Name = "ID Game",
 	Default = "UseId",
 	TextDisappear = false,
 	Callback = function(Value)
@@ -3886,7 +4090,7 @@ _G.IDGame = Value
 })
 
 Tab7:AddButton({
-	Name = "Join Id Game",
+	Name = "Teleport To Game ID",
 	Callback = function()
       		game:GetService("TeleportService"):Teleport(_G.IDGame)
   	end    
@@ -4059,7 +4263,7 @@ if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("Humanoi
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove.Value == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if _G.ReachSlapArua >= Magnitude then
-shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild(SlapAuraCharacter),true)
+gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild(SlapAuraCharacter),true)
                     end
 end
 end
@@ -4076,7 +4280,7 @@ if v.Character:FindFirstChild("entered") and v.Character:FindFirstChild("Humanoi
 if v.Character.Head:FindFirstChild("UnoReverseCard") == nil or game.Players.LocalPlayer.leaderstats.Glove.Value == "Error" then
 Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
                         if _G.ReachSlapArua >= Magnitude then
-shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild(SlapAuraCharacter),true)
+gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Character:WaitForChild(SlapAuraCharacter),true)
                     end
 end
 end
@@ -4411,11 +4615,11 @@ end
 })
 
 AntiAdmin = Tab2:AddToggle({
-	Name = "Anti Admin",
+	Name = "Anti Mod | Admin",
 	Default = false,
 	Callback = function(Value)
-AntiAdmins = Value
-while AntiAdmins do
+AntiMods = Value
+while AntiMods do
 for i,v in pairs(game.Players:GetChildren()) do
 if v:GetRankInGroup(9950771) >= 2 then
 _G.AntiKick = false
@@ -4488,7 +4692,7 @@ end
 })
 
 AntiRock = Tab2:AddToggle({
-	Name = "Anti Megarock / Custom",
+	Name = "Anti Megarock | Custom",
 	Default = false,
 	Callback = function(Value)
 		_G.AntiRock = Value
@@ -4670,7 +4874,7 @@ _G.AntiNull = Value
 while _G.AntiNull do
 for i,v in pairs(game.Workspace:GetChildren()) do
 if v.Name == "Imp" and v:FindFirstChild("Body") then
-shared.gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Body,true)
+gloveHits[game.Players.LocalPlayer.leaderstats.Glove.Value]:FireServer(v.Body,true)
 end
 end
 task.wait()
@@ -4685,7 +4889,7 @@ AntiBrick = Tab2:AddToggle({
 _G.AntiBrick = Value
 while _G.AntiBrick do
 for i,v in pairs(game.Workspace:GetChildren()) do
-                    if v.Name == "Union" and v:FindFirstChild("TouchTransmitter") then
+                    if v.Name == "Union" then
                         v.CanTouch = false
                         v.CanQuery = false
                     end
@@ -5019,11 +5223,13 @@ end
 	end    
 })
 
-Tab15:AddLabel("All Discord or github Help My credits Script")
+Tab15:AddLabel("Owner Credits Script By Tin And DonjoSx")
+Tab15:AddLabel("All Discord or github Help My Credits Script")
 Tab15:AddLabel("My Share Link Discord And Zalo")
 Tab15:AddLabel("Join Link Zalo Message All People Or Friend")
 Tab15:AddLabel("You Have To Message Zalo In VietNamese")
 Tab15:AddLabel("You Have Message Discord In VietNamese Or English")
+Tab15:AddLabel("Owner Zalo [ Mcroft ] or [ DonoThatExists ]")
 
 Tab15:AddButton({
 	Name = "Copy Guy that exists",
@@ -5230,8 +5436,8 @@ local Tab1 = Window:MakeTab({
 })
 
 local Fps = Tab:AddSection({Name = "Fps You"})
-CanYouFps = Tab:AddLabel("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
-Tab:AddLabel("ID Game Play [ "..game.PlaceId.." ]")
+CanYouFps = Tab:AddLabel("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+Tab:AddLabel("Game's ID [ "..game.PlaceId.." ]")
 
 Tab:AddButton({
 	Name = "Get Elude",
@@ -5457,15 +5663,21 @@ Tab:AddButton({
   	end    
 })
 
-Tab:AddButton({
-	Name = "Click Alchemist Plushie",
-	Callback = function()
-         fireclickdetector(game.Workspace:FindFirstChild("_ugcQuestObjectEludeHat").ClickDetector)
-  	end    
+Tab:AddDropdown({
+	Name = "Alchemist Plushie",
+	Default = "",
+	Options = {"Click", "Teleport"},
+	Callback = function(Value)
+if Value == "Click" then
+fireclickdetector(game.Workspace:FindFirstChild("_ugcQuestObjectEludeHat").ClickDetector)
+elseif Value == "Teleport" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-52.8588524, 1.19999933, -37.3839836, -0.999801993, -1.05696429e-07, -0.0199000984, -1.05679547e-07, 1, -1.89986538e-09, 0.0199000984, 2.03544209e-10, -0.999801993)
+end
+	end    
 })
 
 Tab1:AddButton({
-	Name = "View Testing Server [ Good for glove leaking ] [ You Have Banned ]",
+	Name = "View Testing Server",
 	Callback = function()
 local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
 if teleportFunc then
@@ -5476,39 +5688,19 @@ if teleportFunc then
         local localPlr = game:GetService("Players").LocalPlayer
         repeat wait() until localPlr
         game:GetService("RunService").RenderStepped:Connect(function()
+if game.CoreGui.RobloxLoadingGUI then
 game:GetService("GuiService"):ClearError()
 game.CoreGui.RobloxLoadingGUI:Destroy()
+end
         end)
     ]])
 end
 game:GetService("TeleportService"):Teleport(9020359053)
   	end    
 })
-
-Tab1:AddButton({
-	Name = "View Testing Slap Royale Server",
-	Callback = function()
-local teleportFunc = queueonteleport or queue_on_teleport or syn and syn.queue_on_teleport
-if teleportFunc then
-    teleportFunc([[
-        if not game:IsLoaded() then
-            game.Loaded:Wait()
-        end
-        local localPlr = game:GetService("Players").LocalPlayer
-        repeat wait() until localPlr
-        game:GetService("RunService").RenderStepped:Connect(function()
-game:GetService("GuiService"):ClearError()
-game.CoreGui.RobloxLoadingGUI:Destroy()
-        end)
-    ]])
-end
-game:GetService("TeleportService"):Teleport(9412268818)
-  	end    
-})
-
 ---GetRun---
 game:GetService("RunService").RenderStepped:Connect(function()
-CanYouFps:Set("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+CanYouFps:Set("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
 end)
 elseif game.PlaceId == 9020359053 or game.PlaceId == 9412268818 then
 local Window = OrionLib:MakeWindow({IntroText = (GameName), Name = (GameName.." - ".. identifyexecutor()), HidePremium = false, SaveConfig = false, IntroEnabled = true, ConfigFolder = "slap battles"})
@@ -5558,8 +5750,10 @@ if teleportFunc then
         end
         repeat wait() until game.Players.LocalPlayer
         game:GetService("RunService").RenderStepped:Connect(function()
+if game.CoreGui.RobloxLoadingGUI then
             game:GetService("GuiService"):ClearError()
             game.CoreGui.RobloxLoadingGUI:Destroy()
+end
         end)
     ]])
 end
@@ -5593,9 +5787,9 @@ local Tab1 = Window:MakeTab({
 })
 
 local InfoServer = Tab:AddSection({Name = "Info"})
-CanYouFps = Tab:AddLabel("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+CanYouFps = Tab:AddLabel("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
 Tab:AddLabel("You're Using Glove [ "..game.Players.LocalPlayer.leaderstats.Glove.Value.." ]")
-Tab:AddLabel("ID Game Play [ "..game.PlaceId.." ]")
+Tab:AddLabel("Game's ID [ "..game.PlaceId.." ]")
 local Combat = Tab:AddSection({Name = "Combat"})
 
 Tab:AddToggle({
@@ -5710,7 +5904,7 @@ GloveSlap = Value
 })
 
 Tab:AddToggle({
-	Name = "Slap Bob Clone",
+	Name = "Auto Slap Bob Clone",
 	Default = false,
 	Callback = function(Value)
 _G.SlapBob = Value
@@ -5720,10 +5914,7 @@ task.wait()
 end
 while _G.SlapBob and GloveSlap == "Reaper" do
 if game.Workspace:WaitForChild("BobClone"):WaitForChild("DeathMark") == nil then
-Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - game.Workspace.BobClone.HumanoidRootPart.Position).Magnitude
-if 90 >= Magnitude then
 game:GetService("ReplicatedStorage"):WaitForChild("ReaperHit"):FireServer(game.Workspace.BobClone:WaitForChild("HumanoidRootPart"))
-end
 end
 task.wait()
 end
@@ -6566,11 +6757,17 @@ end)
 	end    
 })
 
-Tab:AddButton({
-	Name = "Click Rob Plushie",
-	Callback = function()
-         fireclickdetector(game.Workspace._ugcQuestObjectBobPlushie.ClickDetector)
-  	end    
+Tab:AddDropdown({
+	Name = "Rob Plushie",
+	Default = "",
+	Options = {"Click", "Teleport"},
+	Callback = function(Value)
+if Value == "Click" then
+fireclickdetector(game.Workspace:FindFirstChild("_ugcQuestObjectBobPlushie").ClickDetector)
+elseif Value == "Teleport" then
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(5260.01758, -141.203705, 863.330688, -0.923977673, 9.12476672e-09, -0.382446438, 4.22164632e-08, 1, -7.81346046e-08, 0.382446438, -8.83401654e-08, -0.923977673)
+end
+	end    
 })
 
 Tab:AddDropdown({
@@ -6806,18 +7003,18 @@ local Tab = Window:MakeTab({
 })
 
 local InfoServer = Tab:AddSection({Name = "Info"})
-CanYouFps = Tab:AddLabel("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
-CanYouPing = Tab:AddLabel("Can You Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
-TimeServer = Tab:AddLabel("Time Server [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minute | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
+CanYouFps = Tab:AddLabel("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+CanYouPing = Tab:AddLabel("Your Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
+TimeServer = Tab:AddLabel("Server Time [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minute | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
 game:GetService("RunService").RenderStepped:Connect(function()
-CanYouFps:Set("Can You Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
-CanYouPing:Set("Can You Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
-TimeServer:Set("Time Server [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minutes | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
+CanYouFps:Set("Your Fps [ "..math.floor(workspace:GetRealPhysicsFPS()).." ]")
+CanYouPing:Set("Your Ping [ "..game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString().." ]")
+TimeServer:Set("Server Time [ "..math.floor(workspace.DistributedGameTime / 60 / 60).." Hour | "..math.floor(workspace.DistributedGameTime / 60) - (math.floor(workspace.DistributedGameTime / 60 / 60) * 60).." Minutes | "..math.floor(workspace.DistributedGameTime) - (math.floor(workspace.DistributedGameTime / 60) * 60).." Second ]")
 end)
 local InfoServer = Tab:AddSection({Name = "Misc"})
 
 Tab:AddButton({
-	Name = "Teleport Enter Final room",
+	Name = "Teleport Enter Final Room",
 	Callback = function()
 game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(499.860291, 77.2709045, 60.5982056, 1, 0, 0, 0, 1, 0, 0, 0, 1)
 wait(1.5)
