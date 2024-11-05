@@ -1,0 +1,85 @@
+local Players = game:GetService("Players")
+    local LocalPlayer = Players.LocalPlayer
+    local RunService = game:GetService("RunService")
+
+    local function updateTextTransparency(textLabel, distance)
+        if distance <= 7 then
+            textLabel.TextTransparency = 1
+        else
+            textLabel.TextTransparency = 0.3
+        end
+    end
+
+    local function createUsernameLabel(player)
+        if player == LocalPlayer then
+            return
+        end
+
+        local character = player.Character
+        if character and character:FindFirstChild("Head") then
+            local head = character.Head
+
+            local oldLabel = head:FindFirstChild("UsernameLabel")
+            if oldLabel then
+                oldLabel:Destroy()
+            end
+
+            local billboardGui = Instance.new("BillboardGui")
+            local textLabel = Instance.new("TextLabel")
+
+            billboardGui.Name = "UsernameLabel"
+            billboardGui.Parent = head
+            billboardGui.Adornee = head
+            billboardGui.Size = UDim2.new(0, 100, 0, 25)
+            billboardGui.StudsOffset = Vector3.new(0, 3, 0)
+            billboardGui.AlwaysOnTop = true
+
+            textLabel.Parent = billboardGui
+            textLabel.Size = UDim2.new(1, 0, 1, 0)
+            textLabel.BackgroundTransparency = 1
+            textLabel.Text = player.Name
+            textLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+            textLabel.TextStrokeTransparency = 0.5
+            textLabel.TextSize = 20
+            textLabel.TextTransparency = 0.3
+            textLabel.Font = Enum.Font.ArialBold
+            textLabel.TextScaled = false
+        end
+    end
+
+    local function updateUsernameLabels()
+        while true do
+            for _, player in ipairs(Players:GetPlayers()) do
+                if player ~= LocalPlayer then
+                    createUsernameLabel(player)
+                end
+            end
+            wait(3)
+        end
+    end
+
+    Players.PlayerAdded:Connect(function(player)
+        player.CharacterAdded:Connect(function()
+            if player ~= LocalPlayer then
+                createUsernameLabel(player)
+            end
+        end)
+    end)
+
+    RunService.RenderStepped:Connect(function()
+        for _, player in ipairs(Players:GetPlayers()) do
+            if player ~= LocalPlayer and player.Character and player.Character:FindFirstChild("Head") then
+                local head = player.Character.Head
+                local distance = (LocalPlayer.Character and LocalPlayer.Character.HumanoidRootPart.Position - head.Position).magnitude
+                local billboardGui = head:FindFirstChild("UsernameLabel")
+                if billboardGui then
+                    local textLabel = billboardGui:FindFirstChildOfClass("TextLabel")
+                    if textLabel then
+                        updateTextTransparency(textLabel, distance)
+                    end
+                end
+            end
+        end
+    end)
+
+    spawn(updateUsernameLabels)
