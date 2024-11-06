@@ -1,0 +1,59 @@
+local allowedPlaceIds = {13771457545, 12355337193}
+local userId = game.Players.LocalPlayer.UserId
+local currentPlaceId = game.PlaceId
+
+-- Check if the current PlaceId is allowed
+for _, allowedPlaceId in ipairs(allowedPlaceIds) do
+    if currentPlaceId == allowedPlaceId then
+        -- Check for UserId and run respective scripts
+        if userId == 4956172446 then
+            -- If the UserId is 4956172446, run this script
+            
+            local StarterGui = game:GetService("StarterGui")
+
+local Notifications = {
+	"Enjoy!"
+}
+
+local NotificationDuration = 4 -- Duration of the notification (in seconds)
+
+-- Select a random notification to send
+local RandomNotification = Notifications[math.random(1, #Notifications)]
+
+-- Send the random notification
+StarterGui:SetCore("SendNotification", {
+	Title = "Script Made By Tin",
+	Text = RandomNotification,
+	Duration = NotificationDuration
+})
+            
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Tinalt/Scripts2/refs/heads/main/Gui%20MVSD%20Ph'))()
+            return
+        elseif userId == 7235845641 then
+            -- If the UserId is 7235845641, run this script
+            
+            local StarterGui = game:GetService("StarterGui")
+
+local Notifications = {
+	"Enjoy!"
+}
+
+local NotificationDuration = 4 -- Duration of the notification (in seconds)
+
+-- Select a random notification to send
+local RandomNotification = Notifications[math.random(1, #Notifications)]
+
+-- Send the random notification
+StarterGui:SetCore("SendNotification", {
+	Title = "Script Made By Tin",
+	Text = RandomNotification,
+	Duration = NotificationDuration
+})
+            
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Tinalt/Scripts2/refs/heads/main/Gui%20MVSD%20Tin"))()
+            return
+        else
+            return
+        end
+    end
+end
